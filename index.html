@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Home - Fire Personal Website</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head><body><!-- HEADER -->
+<header>
+    <h1>🔥 Welcome to My Personal Website 🔥</h1>
+    <p>Discover My World, Passion and Creativity</p>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ABOUT ▾</a>
+
+            <div class="dropdown-content">
+                <a href="skills.html">Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+        </li>
+
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+
+        <li>
+            <a href="#" class="logout-button" onclick="confirmLogout(event)">
+                LOG OUT
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- SLIDER -->
+<div class="slider">
+    <div class="slides">
+
+        <div class="slide">
+            <img src="7.jpg" alt="First featured image">
+            <div class="text-overlay">
+                <h1>Welcome to My Website!</h1>
+                <p>Explore My Personal Journey</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="8.jpg" alt="Second featured image">
+            <div class="text-overlay">
+                <h1>Dream Big!</h1>
+                <p>Learn, Create and Innovate</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="9.jpg" alt="Third featured image">
+            <div class="text-overlay">
+                <h1>Keep Moving Forward!</h1>
+                <p>Every Line of Code Builds a Future</p>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="slider-btn prev-slide" onclick="changeSlide(-1)">❮</button>
+    <button class="slider-btn next-slide" onclick="changeSlide(1)">❯</button>
+</div>
+
+<!-- FUN FACTS -->
+<section id="drop">
+
+    <h2>🔥 Fun Facts About Me 🔥</h2>
+
+    <p>
+        Welcome to my Fun Facts About Me!
+        Here, you'll get a glimpse into my passions,
+        interests, and the little things that make me unique.
+    </p>
+
+    <div class="funfact-container">
+
+        <div class="funfact-card">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>💻 I Love Programming!</p>
+                </div>
+
+                <div class="funfact-back">
+                    <p>I enjoy coding and creating amazing projects!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="funfact-card">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>☕ Coffee Explorer!</p>
+                </div>
+
+                <div class="funfact-back">
+                    <p>I'm always excited to discover new coffee shops!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="funfact-card">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>🎵 Code + Music!</p>
+                </div>
+
+                <div class="funfact-back">
+                    <p>I enjoy coding while listening to OPM and RNB!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="funfact-card">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>🎯 Goal Setter!</p>
+                </div>
+
+                <div class="funfact-back">
+                    <p>I always set goals and work hard to achieve my dreams!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="see-more-container">
+        <a href="funfacts.html" class="see-more-button">
+            See More Fun Facts →
+        </a>
+    </div>
+
+</section>
+
+<!-- ABOUT ME -->
+<div class="container">
+
+    <div class="image-section">
+        <img src="ton.jpg" alt="Personal Profile Picture">
+    </div>
+
+    <div class="quote-section">
+
+        <h1>Hi, I'm Francis!</h1>
+
+        <p>
+            I'm an Information Technology student with a passion
+            for front-end web development.
+
+            I'm excited to explore the ever-evolving world of
+            technology and build projects that make an impact.
+
+            My interests include programming, graphic design,
+            responsive web design, and learning new technologies.
+
+            Always eager to learn, improve, and innovate!
+        </p>
+
+        <blockquote>
+            "The only way to do great work is to love what you do."
+        </blockquote>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer-divider"></div>
+
+<footer>
+    <p>&copy; 2026 Francis Dumaquita. All rights reserved.</p>
+    <p>🔥 Designed with Passion and Creativity 🔥</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+
+    <span class="close" onclick="closeLightbox()">&times;</span>
+
+    <span class="prev" onclick="changeLightboxImage(-1)">&#10094;</span>
+
+    <img id="lightboxImage" class="lightbox-content" src="" alt="Image Preview">
+
+    <span class="next" onclick="changeLightboxImage(1)">&#10095;</span>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+
+    // SLIDER
+    const slides = document.querySelector('.slides');
+    const slideItems = document.querySelectorAll('.slide');
+
+    let currentSlide = 0;
+    let slideTimer;
+
+    function showSlide(index) {
+
+        if (slideItems.length === 0) return;
+
+        currentSlide = (index + slideItems.length) % slideItems.length;
+
+        slides.style.transform =
+            `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function changeSlide(direction) {
+        showSlide(currentSlide + direction);
+        resetSlideTimer();
+    }
+
+    function startSlideTimer() {
+        slideTimer = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 3000);
+    }
+
+    function resetSlideTimer() {
+        clearInterval(slideTimer);
+        startSlideTimer();
+    }
+
+    startSlideTimer();
+
+    // LIGHTBOX
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+
+    const sliderImages = document.querySelectorAll('.slide img');
+
+    let currentLightboxIndex = 0;
+
+    function openLightbox(index) {
+
+        currentLightboxIndex = index;
+
+        lightboxImage.src = sliderImages[index].src;
+
+        lightbox.style.display = 'block';
+
+        clearInterval(slideTimer);
+    }
+
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        startSlideTimer();
+    }
+
+    function changeLightboxImage(direction) {
+
+        currentLightboxIndex += direction;
+
+        if (currentLightboxIndex < 0) {
+            currentLightboxIndex = sliderImages.length - 1;
+        }
+
+        if (currentLightboxIndex >= sliderImages.length) {
+            currentLightboxIndex = 0;
+        }
+
+        lightboxImage.src =
+            sliderImages[currentLightboxIndex].src;
+    }
+
+    sliderImages.forEach((img, index) => {
+        img.addEventListener('click', () => {
+            openLightbox(index);
+        });
+    });
+
+    // CLOSE LIGHTBOX WHEN CLICKING BACKGROUND
+    lightbox.addEventListener('click', function(event) {
+
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+
+    });
+
+    // KEYBOARD CONTROLS
+    document.addEventListener('keydown', function(event) {
+
+        if (lightbox.style.display === 'block') {
+
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+
+            if (event.key === 'ArrowRight') {
+                changeLightboxImage(1);
+            }
+
+            if (event.key === 'ArrowLeft') {
+                changeLightboxImage(-1);
+            }
+
+        }
+
+    });
+
+    // LOGOUT CONFIRMATION
+    function confirmLogout(event) {
+
+        event.preventDefault();
+
+        const answer = confirm(
+            "🔥 Are you sure you want to log out?"
+        );
+
+        if (answer) {
+
+            localStorage.removeItem('isLoggedIn');
+
+            window.location.href = 'login.html';
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

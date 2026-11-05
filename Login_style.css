@@ -1,0 +1,263 @@
+/* ==================================
+🔥 FIRE LOGIN PAGE THEME
+================================== */
+
+/* BASIC RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+/* BODY STYLING */
+body {
+font-family: 'Trebuchet MS', sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+padding: 15px;
+
+background: linear-gradient(
+    135deg,
+    #170500,
+    #7b1600,
+    #ff2400,
+    #ff6600,
+    #ffcc00
+);
+
+background-size: 400% 400%;
+animation: fireBackground 10s ease infinite;
+
+color: #ffffff;
+
+}
+
+/* FIRE BACKGROUND ANIMATION */
+@keyframes fireBackground {
+0% {
+background-position: 0% 50%;
+}
+
+50% {
+    background-position: 100% 50%;
+}
+
+100% {
+    background-position: 0% 50%;
+}
+
+}
+
+/* FORM CONTAINER */
+.form-container {
+width: 350px;
+min-height: 480px;
+padding: 30px 25px;
+
+background: linear-gradient(
+    145deg,
+    #21100c,
+    #35130b,
+    #1a0805
+);
+
+border: 2px solid #ff6600;
+border-radius: 18px;
+
+box-shadow:
+    0 0 10px #ff4500,
+    0 0 25px rgba(255, 69, 0, 0.7),
+    0 0 50px rgba(255, 102, 0, 0.4);
+
+text-align: center;
+color: #ffffff;
+
+position: relative;
+z-index: 1;
+
+animation: formEntrance 1s ease;
+
+}
+
+/* FORM ENTRANCE ANIMATION */
+@keyframes formEntrance {
+from {
+opacity: 0;
+transform: translateY(40px) scale(0.95);
+}
+
+to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+}
+
+/* HEADING */
+.form-container h2 {
+margin-bottom: 25px;
+
+font-size: 42px;
+font-weight: bold;
+
+background: linear-gradient(
+    90deg,
+    #ff2400,
+    #ff6600,
+    #ffcc00
+);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+text-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+
+}
+
+/* LABEL */
+label {
+display: block;
+text-align: left;
+
+margin: 8px 0 6px;
+
+color: #ffcc99;
+font-size: 15px;
+font-weight: bold;
+
+}
+
+/* INPUT FIELDS */
+input[type="text"],
+input[type="password"] {
+width: 100%;
+padding: 12px;
+
+margin-bottom: 12px;
+
+background: #fff5ed;
+color: #28100a;
+
+border: 2px solid #ff6600;
+border-radius: 8px;
+
+outline: none;
+font-size: 16px;
+
+transition: 0.3s;
+
+}
+
+/* INPUT FOCUS */
+input[type="text"]:focus,
+input[type="password"]:focus {
+border-color: #ffcc00;
+
+box-shadow:
+    0 0 8px #ff6600,
+    0 0 15px rgba(255, 204, 0, 0.5);
+
+transform: scale(1.02);
+
+}
+
+/* FIRE BUTTON */
+button {
+width: 100%;
+padding: 13px;
+
+background: linear-gradient(
+    45deg,
+    #ff2400,
+    #ff6600,
+    #ffcc00
+);
+
+color: #ffffff;
+
+border: none;
+border-radius: 25px;
+
+cursor: pointer;
+
+font-size: 16px;
+font-weight: bold;
+font-family: 'Trebuchet MS', sans-serif;
+
+margin: 8px 0;
+
+transition: 0.4s;
+
+box-shadow: 0 0 12px rgba(255, 69, 0, 0.6);
+
+}
+
+/* BUTTON HOVER */
+button:hover {
+transform: translateY(-3px) scale(1.03);
+
+box-shadow:
+    0 0 15px #ff4500,
+    0 0 30px #ff6600;
+
+background: linear-gradient(
+    45deg,
+    #ffcc00,
+    #ff6600,
+    #ff2400
+);
+
+}
+
+/* BUTTON CLICK */
+button:active {
+transform: scale(0.96);
+}
+
+/* ERROR MESSAGE */
+#errorMessage {
+color: #ffcc00;
+margin-top: 10px;
+font-size: 14px;
+}
+
+/* SHOW PASSWORD */
+.show-password {
+display: flex;
+align-items: center;
+
+margin-top: 0;
+margin-bottom: 12px;
+
+font-size: 14px;
+color: #ffcc99;
+
+}
+
+.show-password input[type="checkbox"] {
+margin-right: 8px;
+accent-color: #ff6600;
+}
+
+/* MOBILE RESPONSIVE */
+@media screen and (max-width: 400px) {
+
+.form-container {
+    width: 100%;
+    max-width: 350px;
+    padding: 25px 18px;
+}
+
+.form-container h2 {
+    font-size: 35px;
+}
+
+input[type="text"],
+input[type="password"] {
+    font-size: 14px;
+}
+
+}

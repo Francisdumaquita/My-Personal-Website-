@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills - Fire Theme</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #skills-page {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 25px;
+        }
+
+        .skills-intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .skills-intro h2 {
+            color: #ff6600;
+            text-shadow: 0 0 12px #ff2400;
+            font-size: 30px;
+        }
+
+        .skills-intro p {
+            line-height: 1.7;
+        }
+
+        .tab {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tablinks {
+            width: auto;
+            padding: 12px 20px;
+            border: 1px solid #ff6600;
+            border-radius: 8px;
+            background: #25130d;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .tablinks:hover,
+        .tablinks.active {
+            background: linear-gradient(45deg, #ff2400, #ff6600);
+            box-shadow: 0 0 15px #ff6600;
+            transform: translateY(-3px);
+        }
+
+        .tabcontent {
+            display: none;
+            background: rgba(35, 17, 10, 0.95);
+            border: 1px solid #ff6600;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 0 18px rgba(255, 80, 0, 0.25);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tabcontent h3 {
+            color: #ff9900;
+            margin-top: 0;
+        }
+
+        .skill {
+            margin: 22px 0;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-info span:first-child {
+            font-weight: bold;
+        }
+
+        .skill-bar {
+            height: 12px;
+            background: #493027;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #ff2400, #ff6600, #ffcc00);
+            border-radius: 20px;
+            animation: fillBar 1.5s ease forwards;
+        }
+
+        @keyframes fillBar {
+            to { width: var(--level); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .skills-note {
+            text-align: center;
+            margin-top: 25px;
+            color: #ffcc99;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            #skills-page {
+                padding: 15px;
+                margin: 25px auto;
+            }
+
+            .skills-intro h2 {
+                font-size: 24px;
+            }
+
+            .tab {
+                flex-direction: column;
+            }
+
+            .tablinks {
+                width: 100%;
+            }
+
+            .tabcontent {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔥 Welcome to My Personal Website 🔥</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ABOUT</a>
+            <div class="dropdown-content">
+                <a href="skills.html">Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+        </li>
+
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li>
+            <a href="javascript:void(0);" class="logout-button"
+               onclick="confirmLogout()">LOG OUT</a>
+        </li>
+    </ul>
+</nav>
+
+<main id="skills-page">
+
+    <div class="skills-intro">
+        <h2>🔥 Skills I'm Developing</h2>
+        <p>
+            As a BSIT student, I am continuously learning and improving
+            my skills in technology and personal development.
+            These are some of the skills I am currently developing.
+        </p>
+    </div>
+
+    <section id="skills">
+
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'IT')">
+                Information Technology
+            </button>
+
+            <button class="tablinks" onclick="openTab(event, 'Communication')">
+                Communication
+            </button>
+
+            <button class="tablinks" onclick="openTab(event, 'Design')">
+                Graphic Design
+            </button>
+
+            <button class="tablinks" onclick="openTab(event, 'ProblemSolving')">
+                Problem Solving
+            </button>
+        </div>
+
+        <!-- INFORMATION TECHNOLOGY -->
+        <div id="IT" class="tabcontent" style="display:block;">
+            <h3>💻 Information Technology</h3>
+            <p>Learning the basics of programming and website development.</p>
+
+            <div class="skill">
+                <div class="skill-info">
+                    <span>HTML</span>
+                    <span>Beginner</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="--level:65%;"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-info">
+                    <span>CSS</span>
+                    <span>Beginner</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="--level:55%;"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-info">
+                    <span>JavaScript</span>
+                    <span>Learning</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="--level:35%;"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-info">
+                    <span>Python</span>
+                    <span>Learning</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="--level:40%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMMUNICATION -->
+        <div id="Communication" class="tabcontent">
+            <h3>🗣️ Communication Skills</h3>
+            <ul>
+                <li>Expressing ideas clearly.</li>
+                <li>Listening and understanding others.</li>
+                <li>Working with classmates during group activities.</li>
+                <li>Improving confidence when speaking.</li>
+            </ul>
+        </div>
+
+        <!-- GRAPHIC DESIGN -->
+        <div id="Design" class="tabcontent">
+            <h3>🎨 Graphic Design</h3>
+            <ul>
+                <li>Learning basic graphic design.</li>
+                <li>Creating simple designs using Canva.</li>
+                <li>Choosing suitable colors and layouts.</li>
+                <li>Improving creativity and visual presentation.</li>
+            </ul>
+        </div>
+
+        <!-- PROBLEM SOLVING -->
+        <div id="ProblemSolving" class="tabcontent">
+            <h3>🧠 Problem Solving</h3>
+            <ul>
+                <li>Finding solutions to simple problems.</li>
+                <li>Learning how to fix coding errors.</li>
+                <li>Thinking logically before making decisions.</li>
+                <li>Practicing through school activities and projects.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <p class="skills-note">
+        "Every expert was once a beginner. Keep learning and keep improving!"
+    </p>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Francis Dumaquita. All rights reserved.</p>
+</footer>
+
+<div class="footer-divider"></div>
+
+<script>
+    // SWITCH SKILLS TABS
+    function openTab(evt, tabName) {
+        const tabcontents = document.getElementsByClassName("tabcontent");
+
+        for (let i = 0; i < tabcontents.length; i++) {
+            tabcontents[i].style.display = "none";
+        }
+
+        const tablinks = document.getElementsByClassName("tablinks");
+
+        for (let i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.classList.add("active");
+    }
+
+    // LOGOUT CONFIRMATION
+    function confirmLogout() {
+        const answer = confirm("Are you sure you want to log out?");
+
+        if (answer) {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        }
+    }
+</script>
+
+</body>
+</html>

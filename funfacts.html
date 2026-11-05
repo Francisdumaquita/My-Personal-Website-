@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Facts About Me</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #funfacts-page {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .funfacts-intro {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .funfacts-intro h2 {
+            color: #ff6600;
+            font-size: 30px;
+            text-shadow: 0 0 12px #ff2400;
+        }
+
+        .funfacts-intro p {
+            line-height: 1.8;
+        }
+
+        .funfact-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .funfact-card {
+            height: 210px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .funfact-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s;
+            transform-style: preserve-3d;
+        }
+
+        .funfact-card:hover .funfact-inner,
+        .funfact-card.flipped .funfact-inner {
+            transform: rotateY(180deg);
+        }
+
+        .funfact-front,
+        .funfact-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            border: 1px solid #ff6600;
+            border-radius: 15px;
+            text-align: center;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            box-shadow: 0 0 15px rgba(255, 80, 0, 0.25);
+        }
+
+        .funfact-front {
+            background: linear-gradient(135deg, #401309, #a52a0a, #ff6600);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .funfact-back {
+            background: #24130e;
+            color: #ffcc99;
+            transform: rotateY(180deg);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .funfact-card:hover .funfact-front,
+        .funfact-card.flipped .funfact-front {
+            box-shadow: 0 0 20px #ff6600;
+        }
+
+        .funfact-note {
+            text-align: center;
+            margin-top: 35px;
+            padding: 20px;
+            border: 1px solid #ff6600;
+            border-radius: 12px;
+            background: rgba(40, 20, 12, 0.7);
+            color: #ffcc99;
+        }
+
+        @media (max-width: 850px) {
+            .funfact-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            #funfacts-page {
+                padding: 15px;
+            }
+
+            .funfacts-intro h2 {
+                font-size: 24px;
+            }
+
+            .funfact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .funfact-card {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔥 Welcome to My Personal Website 🔥</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ABOUT</a>
+            <div class="dropdown-content">
+                <a href="skills.html">Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+        </li>
+
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+
+        <li>
+            <a href="javascript:void(0);" class="logout-button"
+               onclick="confirmLogout()">LOG OUT</a>
+        </li>
+    </ul>
+</nav>
+
+<main id="funfacts-page">
+
+    <div class="funfacts-intro">
+        <h2>🔥 Fun Facts About Me</h2>
+
+        <p>
+            Hello and welcome to my fun facts page!
+            Here are some simple things about my interests,
+            hobbies, and experiences as a BSIT student.
+            Click each card to discover more!
+        </p>
+    </div>
+
+    <div class="funfact-container">
+
+        <!-- FACT 1 -->
+        <div class="funfact-card" onclick="flipCard(this)">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>💻 I Love Programming!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>I enjoy learning how to create websites and simple programs using code.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FACT 2 -->
+        <div class="funfact-card" onclick="flipCard(this)">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>🎵 Music Lover!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>I enjoy listening to music during my free time and while studying.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FACT 3 -->
+        <div class="funfact-card" onclick="flipCard(this)">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>🎮 Gaming Time!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>I enjoy playing games for entertainment and relaxation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FACT 4 -->
+        <div class="funfact-card" onclick="flipCard(this)">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>🎯 Goal Setter!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>I always try to set goals and work hard to achieve my dreams.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FACT 5 -->
+        <div class="funfact-card" onclick="flipCard(this)">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>📚 Always Learning!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>I believe that learning new things can help me improve every day.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FACT 6 -->
+        <div class="funfact-card" onclick="flipCard(this)">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>🎨 Creative Mind!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>I enjoy exploring creative ideas and designing simple website layouts.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FACT 7 -->
+        <div class="funfact-card" onclick="flipCard(this)">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>🤝 Team Player!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>I enjoy working with classmates and sharing ideas during group activities.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FACT 8 -->
+        <div class="funfact-card" onclick="flipCard(this)">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>🚀 Future IT Professional!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>My dream is to become a successful professional in the field of Information Technology.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="funfact-note">
+        <h3>🔥 A Little Reminder</h3>
+        <p>
+            "Be curious, stay creative, and never stop learning.
+            Every small step is part of your success!"
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Francis Dumaquita. All rights reserved.</p>
+</footer>
+
+<div class="footer-divider"></div>
+
+<script>
+    // FLIP FUN FACT CARDS
+    function flipCard(card) {
+        card.classList.toggle("flipped");
+    }
+
+    // LOGOUT FUNCTION
+    function confirmLogout() {
+        const answer = confirm("Are you sure you want to log out?");
+
+        if (answer) {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Me | Francis Dumaquita</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #contact-page {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-intro h2 {
+            color: #ff6600;
+            font-size: 30px;
+            text-shadow: 0 0 12px #ff2400;
+        }
+
+        .contact-intro p {
+            line-height: 1.7;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 25px;
+        }
+
+        .contact-form,
+        .contact-details {
+            background: rgba(40, 20, 12, 0.95);
+            border: 1px solid #ff6600;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 0 15px rgba(255, 80, 0, 0.25);
+            transition: 0.3s;
+        }
+
+        .contact-form:hover,
+        .contact-details:hover {
+            box-shadow: 0 0 22px rgba(255, 102, 0, 0.5);
+        }
+
+        .contact-form h2,
+        .contact-details h3 {
+            color: #ff6600;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px solid #ff6600;
+            border-radius: 8px;
+            background: #1c100b;
+            color: white;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #ffcc00;
+            box-shadow: 0 0 10px #ff6600;
+        }
+
+        .contact-form textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #ff2400, #ff6600);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: linear-gradient(45deg, #ff6600, #ffcc00);
+            box-shadow: 0 0 15px #ff6600;
+            transform: translateY(-3px);
+        }
+
+        .error {
+            display: block;
+            color: #ff7777;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .contact-details p {
+            line-height: 1.8;
+            margin: 22px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-details strong {
+            color: #ff9900;
+        }
+
+        .contact-details hr {
+            border: none;
+            border-top: 1px solid #ff6600;
+            margin: 15px 0;
+        }
+
+        .contact-icon {
+            font-size: 22px;
+            margin-right: 8px;
+        }
+
+        .success-message {
+            display: none;
+            background: #183d20;
+            color: #a5ffb0;
+            border: 1px solid #48c774;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            #contact-page {
+                padding: 15px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-intro h2 {
+                font-size: 25px;
+            }
+
+            .contact-form,
+            .contact-details {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔥 Welcome to My Personal Website 🔥</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ABOUT</a>
+            <div class="dropdown-content">
+                <a href="skills.html">Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+        </li>
+
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+
+        <li>
+            <a href="javascript:void(0);" class="logout-button"
+               onclick="confirmLogout()">LOG OUT</a>
+        </li>
+    </ul>
+</nav>
+
+<main id="contact-page">
+
+    <div class="contact-intro">
+        <h2>🔥 Contact Me</h2>
+
+        <p>
+            Have a question or want to connect with me?
+            Feel free to send a message using the contact form below.
+            I would be happy to hear from you!
+        </p>
+    </div>
+
+    <div class="contact-content">
+
+        <!-- CONTACT FORM -->
+        <form id="contactForm" class="contact-form">
+
+            <h2>Let's Get in Touch!</h2>
+
+            <label for="name">Your Name:</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+            >
+            <span class="error" id="nameError"></span>
+
+            <label for="email">Email Address:</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+            >
+            <span class="error" id="emailError"></span>
+
+            <label for="message">Your Message:</label>
+            <textarea
+                id="message"
+                name="message"
+                placeholder="Write your message here..."
+            ></textarea>
+            <span class="error" id="messageError"></span>
+
+            <button type="submit">🔥 SEND MESSAGE</button>
+
+            <div id="successMessage" class="success-message">
+                Your message was submitted successfully!
+            </div>
+
+        </form>
+
+        <!-- CONTACT DETAILS -->
+        <div class="contact-details">
+
+            <h3>📞 My Contact Information</h3>
+
+            <p>
+                <span class="contact-icon">📧</span>
+                <strong>Email Address:</strong><br>
+                damaquitafrancis@gmail.com
+            </p>
+
+            <hr>
+
+            <p>
+                <span class="contact-icon">📱</span>
+                <strong>Phone Number:</strong><br>
+                09359181870
+            </p>
+
+            <hr>
+
+            <p>
+                <span class="contact-icon">📍</span>
+                <strong>Location:</strong><br>
+                Philippines
+            </p>
+
+            <hr>
+
+            <p>
+                <span class="contact-icon">💻</span>
+                <strong>Course:</strong><br>
+                Bachelor of Science in Information Technology (BSIT)
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Francis Dumaquita. All rights reserved.</p>
+</footer>
+
+<div class="footer-divider"></div>
+
+<script>
+    // CONTACT FORM VALIDATION
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const messageError = document.getElementById("messageError");
+        const successMessage = document.getElementById("successMessage");
+
+        // Clear previous messages
+        nameError.textContent = "";
+        emailError.textContent = "";
+        messageError.textContent = "";
+        successMessage.style.display = "none";
+
+        let isValid = true;
+
+        // Validate name
+        if (name === "") {
+            nameError.textContent = "Please enter your name.";
+            isValid = false;
+        }
+
+        // Validate email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === "") {
+            emailError.textContent = "Please enter your email.";
+            isValid = false;
+        } else if (!emailPattern.test(email)) {
+            emailError.textContent = "Please enter a valid email address.";
+            isValid = false;
+        }
+
+        // Validate message
+        if (message === "") {
+            messageError.textContent = "Please enter your message.";
+            isValid = false;
+        }
+
+        // Show success message
+        if (isValid) {
+            successMessage.style.display = "block";
+            form.reset();
+        }
+    });
+
+    // LOGOUT FUNCTION
+    function confirmLogout() {
+        const answer = confirm("Are you sure you want to log out?");
+
+        if (answer) {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        }
+    }
+</script>
+
+</body>
+</html>
