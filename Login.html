@@ -1,43 +1,53 @@
-<!DOCTYPE html><html lang="en">
-<link rel="stylesheet" href="Login_style.css">
-
-<script src="script.js" defer></script>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Fire Login System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="login_style.css">
+    <title>Fire Login System</title>
 
-</head><body><div class="form-container">
+    <!-- CSS CONNECTION -->
+    <link rel="stylesheet" href="Login_style.css">
+
+    <!-- JAVASCRIPT CONNECTION -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<div class="form-container">
 
     <h2 id="formTitle">🔥 Login</h2>
 
     <form id="authForm">
 
         <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter username" required>
+        <input type="text" id="username"
+               placeholder="Enter username" required>
 
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter password" required>
+        <input type="password" id="password"
+               placeholder="Enter password" required>
 
-        <!-- SHOW PASSWORD -->
         <div class="show-password" id="showPasswordContainer">
             <input type="checkbox" id="showPassword"
-            onclick="togglePasswordVisibility()">
+                   onclick="togglePasswordVisibility()">
             <label for="showPassword">Show Password</label>
         </div>
 
-        <!-- CONFIRM PASSWORD -->
-        <label for="confirmPassword" id="confirmPasswordLabel"
-        style="display:none;">Confirm Password</label>
+        <label for="confirmPassword"
+               id="confirmPasswordLabel" style="display:none;">
+            Confirm Password
+        </label>
 
         <input type="password" id="confirmPassword"
-        placeholder="Confirm password" style="display:none;">
+               placeholder="Confirm password"
+               style="display:none;">
 
         <p id="passwordMatchMessage"
-        style="font-size:14px; display:none;"></p>
+           style="font-size:14px; display:none;"></p>
 
-        <button type="button" onclick="handleSubmit()" id="submitButton">
+        <button type="submit" id="submitButton">
             Login
         </button>
 
@@ -45,169 +55,14 @@
 
         <p id="toggleText">
             Don't have an account?
-            <a href="#" onclick="toggleForm(); return false;">Sign Up</a>
+            <a href="#" onclick="toggleForm(); return false;">
+                Sign Up
+            </a>
         </p>
 
     </form>
 
 </div>
-
-<script>
-
-    let isLogin = true;
-
-    // DEFAULT LOGIN ACCOUNT
-    const DEFAULT_USERNAME = "Francis";
-    const DEFAULT_PASSWORD = "Franss#20";
-
-    // TOGGLE LOGIN AND SIGN UP
-    function toggleForm() {
-
-        const formTitle = document.getElementById("formTitle");
-        const confirmPassword = document.getElementById("confirmPassword");
-        const confirmPasswordLabel = document.getElementById("confirmPasswordLabel");
-        const submitButton = document.getElementById("submitButton");
-        const toggleText = document.getElementById("toggleText");
-        const showPasswordContainer = document.getElementById("showPasswordContainer");
-
-        document.getElementById("authForm").reset();
-
-        document.getElementById("errorMessage").textContent = "";
-        document.getElementById("passwordMatchMessage").style.display = "none";
-
-        if (isLogin) {
-
-            formTitle.textContent = "🔥 Sign Up";
-
-            confirmPassword.style.display = "block";
-            confirmPasswordLabel.style.display = "block";
-
-            submitButton.textContent = "Sign Up";
-
-            showPasswordContainer.style.visibility = "hidden";
-
-            toggleText.innerHTML =
-            'Already have an account? <a href="#" onclick="toggleForm(); return false;">Login</a>';
-
-            isLogin = false;
-
-        } else {
-
-            formTitle.textContent = "🔥 Login";
-
-            confirmPassword.style.display = "none";
-            confirmPasswordLabel.style.display = "none";
-
-            submitButton.textContent = "Login";
-
-            showPasswordContainer.style.visibility = "visible";
-
-            toggleText.innerHTML =
-            'Don\'t have an account? <a href="#" onclick="toggleForm(); return false;">Sign Up</a>';
-
-            isLogin = true;
-        }
-    }
-
-    // LOGIN AND SIGN UP FUNCTION
-    function handleSubmit() {
-
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value;
-        const errorMessage = document.getElementById("errorMessage");
-
-        errorMessage.textContent = "";
-
-        if (isLogin) {
-
-            // CHECK DEFAULT ACCOUNT
-            if (
-                username === DEFAULT_USERNAME &&
-                password === DEFAULT_PASSWORD
-            ) {
-
-                alert("🔥 Welcome Francis! Successfully logged in!");
-
-                window.location.href = "index.html";
-
-            } else {
-
-                errorMessage.textContent = "Invalid username or password!";
-
-            }
-
-        } else {
-
-            const confirmPassword =
-            document.getElementById("confirmPassword").value;
-
-            if (username === "" || password === "") {
-
-                errorMessage.textContent = "Please fill out all fields.";
-
-            } else if (password !== confirmPassword) {
-
-                errorMessage.textContent = "Passwords do not match!";
-
-            } else {
-
-                alert("Account created successfully!");
-
-                document.getElementById("authForm").reset();
-
-                toggleForm();
-            }
-        }
-    }
-
-    // SHOW PASSWORD
-    function togglePasswordVisibility() {
-
-        const passwordField = document.getElementById("password");
-
-        if (passwordField.type === "password") {
-
-            passwordField.type = "text";
-
-        } else {
-
-            passwordField.type = "password";
-        }
-    }
-
-    // PASSWORD MATCH CHECKER
-    document.getElementById("confirmPassword")
-    .addEventListener("input", checkPasswordMatch);
-
-    function checkPasswordMatch() {
-
-        const password = document.getElementById("password").value;
-
-        const confirmPassword =
-        document.getElementById("confirmPassword").value;
-
-        const message =
-        document.getElementById("passwordMatchMessage");
-
-        if (confirmPassword === "") {
-
-            message.style.display = "none";
-
-        } else if (confirmPassword === password) {
-
-            message.textContent = "✓ Passwords match";
-            message.style.color = "#ffcc00";
-            message.style.display = "block";
-
-        } else {
-
-            message.textContent = "✗ Passwords do not match";
-            message.style.color = "#ff4444";
-            message.style.display = "block";
-        }
-    }
-
-</script>
 
 </body>
 </html>
