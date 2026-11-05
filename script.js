@@ -110,3 +110,4 @@ document.addEventListener('keydown', e => {
 
     if (e.key === 'ArrowLeft') changeImage(-1);
 });
+
